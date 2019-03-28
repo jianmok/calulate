@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2>calculate</h2>
+    <h1>calculate</h1>
     <sum-function :number1="number1" :number2="number2" v-on:getSumFromChild="receiveChildSum"></sum-function>
     
     <p>从子组件获取到的值：{{sumFromChild}}</p>
@@ -15,15 +15,16 @@ export default {
     return {
       number1: 4,
       number2: 5,
-      sumFromChild:0,
+      // sumFromChild:0,
     }
   },
   components:{ //注册插件
-    sumFunction
+    sumFunction //将组件隐射为标签
   },
   methods:{
     receiveChildSum(sum){ //自定义事件，接收子组件的和
-      this.sumFromChild = sum;
+      // this.sumFromChild = sum;
+      this.$refs.sumFunction.sumFunction();
     }
   }
 }

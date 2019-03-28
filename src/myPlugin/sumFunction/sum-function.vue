@@ -1,12 +1,13 @@
 <template>
     <div class = 'calulate'>
-      <p>{{number1}} + {{number1}} = {{sum}}</p> 
+      <p>{{number1}} + {{number2}} = {{sum}}</p> 
       <div>
           <input class = 'border' type='text' v-model='number1' @blur="sumFunction">
           <span>+</span>
           <input class = 'border' type='text' v-model='number2' @blur="sumFunction">
           <span @click='sumFunction()'>=</span>
-          <span>{{ sum }}</span>
+          <span >{{ sum }}</span>
+          <span >{{ sum }}</span>
       </div>
     </div>
 </template>
@@ -28,10 +29,12 @@ export default {
         sumFunction(){
             let a = Number(this.number1);
             let b = Number(this.number2);
+            console.log(a,b);
             if(isNaN(a) || idNaN(b)){
-                return;
+                return a;
             }else{
                 this.sum = a + b;
+                console.log('zzzzzzzzzzzzzzzzzzzzzzzz',this.num);
                 this.$emit("getSumFromChild",this.sum);
             }
         }
