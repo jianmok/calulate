@@ -15,7 +15,7 @@ export default {
     return {
       number1: 4,
       number2: 5,
-      // sumFromChild:0,
+      sumFromChild:0,
     }
   },
   components:{ //注册插件
