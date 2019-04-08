@@ -5,12 +5,16 @@
           <input class = 'border' type='text' v-model='number1'>
           <span>+</span>
           <input class = 'border' type='text' v-model='number2'>
-          <span @click='sumFunction'>=</span>
+          <button @click='sumFunction'>=</button>
           <span >{{ sum }}</span>
       </div>
     </div>
 </template>
 <script>
+// <!-- 
+//     传值： string number boolean
+//     引用： array object (更改一个地方则所有都会发生变化)
+// -->
 export default {
     props: ['number1', 'number2'],
     name: 'sumFunction',
@@ -21,28 +25,14 @@ export default {
             sum: 0
         }
     },
-    // mouthed() {
-    //     this.sumFunction();
-    // },
-    // computed: {
-    //     sumFunction(){
-    //         this.number1 = Number(this.number1);
-    //         this.number2 = Number(this.number2);
-    //         console.log(a,b);
-    //         if(isNaN(this.number1) || idNaN(this.number2)){
-    //             return;
-    //         }else{
-    //             this.sum = this.number1 + this.number2;
-    //             this.$emit("getSumFromChild",this.sum);
-    //         }
-    //     }
-    // }
+    mouthed() {
+        this.sumFunction();
+    },
     methods: {
         sumFunction: function(){
             let a = Number(this.number1);
             let b = Number(this.number2);
-            console.log(a,b);
-            if(isNaN(a) || idNaN(b)){
+            if(isNaN(a) || isNaN(b)){
                 return a;
             }else{
                 this.sum = a + b;
